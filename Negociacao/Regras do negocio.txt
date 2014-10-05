@@ -1,0 +1,78 @@
+Simular a criação de ovelhas
+
+Jogadores
+- 3 jogadores ao todo em rede.
+
+Etapas do Jogo
+- 3 experimentos diferentes com 2 fases
+            	- 1º experimento
+                           	Pasto comum (os 3 jogadores no mesmo pasto)
+            	- 2º experimento [1 Milestone]
+                           	Pasto individual ( 1/3 do pasto)
+            	- 3º experimento
+                           	Privado ( Cada jogador pagará para usar o pasto )
+ 
+            	- 30 rodadas por fase (tentativa)
+ 
+- 1ª fase:  Tempo
+- 2ª fase:  Pontos 	
+   	
+Recurso Usado
+- Capins 7% de reajuste por rodada
+ 
+Ações do Jogador
+- Colocar no pasto (consome 15% por rodada)
+- Prender
+- Tosar
+- Vender
+- Reproduzir (Usa 2 ovelhas)
+ 
+Regras do Jogo (A ser usado em cada experimento)
+A cada 10 minutos a ovelha dorme //O jogador não sabe
+Ao iniciar o jogo, o pasto terá 100 capins e cada jogador terá 5 ovelhas.
+Em cada rodada o jogador é obrigado a definir uma atividade para todas as ovelhas.
+Cada ação demanda diferentes tempos e/ou pontos.
+Se a ovelha passar 5 minutos sem comer ela morre.
+ 
+Pontuação:
+Atividade
+Pôr no pasto
+Deixa presa
+Tosar
+Vender
+Procriar
+Tempo
+Fi = 3s.
+Fi = 1s.
+Fi = 15s.
+Fi = 0s.
+Fi = 30s.
+Consequência
+5 pts.
+1 pt.
+10 pts.
+20 pts.
+Nova ovelha
+ 
+
+ 
+
+Algumas Perguntas
+
+1) Qual o resultado esperado? Quais dados pretendemos colher? 
+
+Mandar os dados da escolha por tentativa por Excel (relatório das escolhas).
+
+2) Como perde ponto? 
+
+Não se pode perder ponto. A pontuação individual é dividida de  acordo com a pontuação da rodada. 
+
+3) Modificação de tempo e resultado. 
+
+O jogador vai ter 50 rodadas-teste para habituar-se às condições,  ou seja, tais rodadas vão funcionar como um treino. 
+
+4) Informações sobre a ovelha não poderão ser exibidas.
+
+5) O que é nanoted?
+
+E-mail: svasconcelospsi@gmail.com
