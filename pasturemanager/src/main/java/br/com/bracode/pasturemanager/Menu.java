@@ -6,7 +6,7 @@ import jplay.Window;
 
 public class Menu {
 
-	private Window window;
+	public static Window window;
 	private Mouse mouse;
 
 	private GameImage background;
@@ -33,7 +33,7 @@ public class Menu {
 
 		title = new GameImage(img + "title.png");
 		title.x = background.width / 2 - title.width / 2;
-		title.y = 50;
+		title.y = 39;
 
 		close = new GameImage(img + "close.png");
 		close.x = background.width - close.width;
@@ -55,28 +55,30 @@ public class Menu {
 	private void loop() {
 		while (true) {
 			draw();
-
-			if (mouse.isOverObject(jogar)) {
-				jogar.loadImage(img + "jogarHover.png");
-			} else {
-				jogar.loadImage(img + "jogar.png");
-			}
-
-			if (mouse.isOverObject(configuracoes)) {
-				configuracoes.loadImage(img + "configuracoesHover.png");
-			} else {
-				configuracoes.loadImage(img + "configuracoes.png");
-			}
-
-			if (mouse.isOverObject(creditos)) {
-				creditos.loadImage(img + "creditosHover.png");
-			} else {
-				creditos.loadImage(img + "creditos.png");
-			}
-
+			checkHover();
 			checkClick();
 
 			window.update();
+		}
+	}
+
+	private void checkHover() {
+		if (mouse.isOverObject(jogar)) {
+			jogar.loadImage(img + "jogarHover.png");
+		} else {
+			jogar.loadImage(img + "jogar.png");
+		}
+
+		if (mouse.isOverObject(configuracoes)) {
+			configuracoes.loadImage(img + "configuracoesHover.png");
+		} else {
+			configuracoes.loadImage(img + "configuracoes.png");
+		}
+
+		if (mouse.isOverObject(creditos)) {
+			creditos.loadImage(img + "creditosHover.png");
+		} else {
+			creditos.loadImage(img + "creditos.png");
 		}
 	}
 
@@ -90,16 +92,27 @@ public class Menu {
 	}
 
 	private void checkClick() {
+
+		if (mouse.isOverObject(close) && mouse.isLeftButtonPressed()) {
+			window.exit();
+		}
 		
 		if (mouse.isOverObject(jogar) && mouse.isLeftButtonPressed()) {
 			new ExperimentScreen();
 		}
 		
-		if (mouse.isOverObject(close) && mouse.isLeftButtonPressed()) {
-			window.exit();
+		if (mouse.isOverObject(configuracoes) && mouse.isLeftButtonPressed()) {
+			
 		}
 		
+		if (mouse.isOverObject(creditos) && mouse.isLeftButtonPressed()) {
+			new Credits();
+		}
 		
+		if (mouse.isOverObject(background) && mouse.isLeftButtonPressed()) {
+			System.out.println("bg");
+		}
+
 	}
 
 }

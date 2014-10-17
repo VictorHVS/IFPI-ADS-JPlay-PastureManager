@@ -6,17 +6,19 @@ import jplay.Window;
 
 public class ExperimentScreen {
 
-	private Window 		window;
-	private Mouse 		mouse;
+	private Window window;
+	private Mouse mouse;
 
-	private GameImage 	background;
-	private GameImage 	title;
+	private GameImage background;
+	private GameImage title;
 
-	private GameImage 	pastoIndividual;
-	private GameImage 	pastoPrivado;
-	private GameImage 	pastoColetivo;
+	private GameImage pastoIndividual;
+	private GameImage pastoPrivado;
+	private GameImage pastoColetivo;
 
-	private String 		img;
+	private GameImage close;
+
+	private String img;
 
 	public ExperimentScreen() {
 		init();
@@ -44,6 +46,10 @@ public class ExperimentScreen {
 		pastoColetivo = new GameImage(img + "pastoColetivo.png");
 		pastoColetivo.x = background.width / 2 - pastoIndividual.width / 2;
 		pastoColetivo.y = 608;
+
+		close = new GameImage(img + "close.png");
+		close.x = background.width - close.width;
+		close.y = 0;
 	}
 
 	private void loop() {
@@ -67,7 +73,9 @@ public class ExperimentScreen {
 			} else {
 				pastoColetivo.loadImage(img + "pastoColetivo.png");
 			}
-
+			
+			
+			checkClick();
 			window.update();
 		}
 	}
@@ -78,5 +86,14 @@ public class ExperimentScreen {
 		pastoIndividual.draw();
 		pastoPrivado.draw();
 		pastoColetivo.draw();
+		close.draw();
 	}
+
+	private void checkClick() {
+
+		if (mouse.isOverObject(close) && mouse.isLeftButtonPressed()) {
+			window.exit();
+		}
+	}
+
 }
