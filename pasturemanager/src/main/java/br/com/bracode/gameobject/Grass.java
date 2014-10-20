@@ -1,5 +1,11 @@
 package br.com.bracode.gameobject;
 
-public class Grass {
+import jplay.Sprite;
+
+public class Grass extends Sprite {
+
+	public Grass(String fileName) {
+		super(fileName);
+	}
 
 }

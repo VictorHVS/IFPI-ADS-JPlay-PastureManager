@@ -1,13 +1,9 @@
 package br.com.bracode.pasturemanager;
 
 import jplay.GameImage;
-import jplay.Mouse;
-import jplay.Window;
+import br.com.bracode.tools.Settings;
 
 public class Credits {
-
-	//private Window 		window;
-	private Mouse		mouse;
 
 	private GameImage 	background;
 	private GameImage 	title;
@@ -26,8 +22,6 @@ public class Credits {
 
 	private void init() {
 		img 		= "media/img/";
-		//Menu.window 		= new Window(1366, 768);
-		mouse 		= Menu.window.getMouse();
 		background 	= new GameImage(img + "bg_green.png");
 
 		title = new GameImage(img + "title.png");
@@ -52,7 +46,7 @@ public class Credits {
 			draw();	
 			
 			checkClick();
-			Menu.window.update();
+			Settings.window.update();
 		}
 	}
 
@@ -66,15 +60,15 @@ public class Credits {
 
 	private void checkClick() {
 
-		if (mouse.isOverObject(close) && mouse.isLeftButtonPressed()) {
-			Menu.window.exit();
+		if (Settings.mouse.isOverObject(close) && Settings.mouse.isLeftButtonPressed()) {
+			Settings.window.exit();
 		}
 		
-		if (mouse.isOverObject(previous) && mouse.isLeftButtonPressed()) {
+		if (Settings.mouse.isOverObject(previous) && Settings.mouse.isLeftButtonPressed()) {
 			new Menu();
 		}
 		
-		if (mouse.isOverObject(background) && mouse.isLeftButtonPressed()) {
+		if (Settings.mouse.isOverObject(background) && Settings.mouse.isLeftButtonPressed()) {
 			System.out.println("bg");
 		}
 	}

@@ -1,13 +1,9 @@
 package br.com.bracode.pasturemanager;
 
 import jplay.GameImage;
-import jplay.Mouse;
-import jplay.Window;
+import br.com.bracode.tools.Settings;
 
 public class Menu {
-
-	public static Window window;
-	private Mouse mouse;
 
 	private GameImage background;
 	private GameImage title;
@@ -18,36 +14,31 @@ public class Menu {
 
 	private GameImage close;
 
-	private String img;
-
 	public Menu() {
 		init();
 		loop();
 	}
 
 	private void init() {
-		img = "media/img/";
-		window = new Window(1366, 768);
-		mouse = window.getMouse();
-		background = new GameImage(img + "bg_green.png");
+		background = new GameImage(Settings.img + "bg_green.png");
 
-		title = new GameImage(img + "title.png");
+		title = new GameImage(Settings.img + "title.png");
 		title.x = background.width / 2 - title.width / 2;
 		title.y = 39;
 
-		close = new GameImage(img + "close.png");
+		close = new GameImage(Settings.img + "close.png");
 		close.x = background.width - close.width;
 		close.y = 0;
 
-		jogar = new GameImage(img + "jogar.png");
+		jogar = new GameImage(Settings.img + "jogar.png");
 		jogar.x = background.width / 2 - jogar.width / 2;
 		jogar.y = 383;
 
-		configuracoes = new GameImage(img + "configuracoes.png");
+		configuracoes = new GameImage(Settings.img + "configuracoes.png");
 		configuracoes.x = background.width / 2 - jogar.width / 2;
 		configuracoes.y = 492;
 
-		creditos = new GameImage(img + "creditos.png");
+		creditos = new GameImage(Settings.img + "creditos.png");
 		creditos.x = background.width / 2 - jogar.width / 2;
 		creditos.y = 608;
 	}
@@ -58,27 +49,27 @@ public class Menu {
 			checkHover();
 			checkClick();
 
-			window.update();
+			Settings.window.update();
 		}
 	}
 
 	private void checkHover() {
-		if (mouse.isOverObject(jogar)) {
-			jogar.loadImage(img + "jogarHover.png");
+		if (Settings.mouse.isOverObject(jogar)) {
+			jogar.loadImage(Settings.img + "jogarHover.png");
 		} else {
-			jogar.loadImage(img + "jogar.png");
+			jogar.loadImage(Settings.img + "jogar.png");
 		}
 
-		if (mouse.isOverObject(configuracoes)) {
-			configuracoes.loadImage(img + "configuracoesHover.png");
+		if (Settings.mouse.isOverObject(configuracoes)) {
+			configuracoes.loadImage(Settings.img + "configuracoesHover.png");
 		} else {
-			configuracoes.loadImage(img + "configuracoes.png");
+			configuracoes.loadImage(Settings.img + "configuracoes.png");
 		}
 
-		if (mouse.isOverObject(creditos)) {
-			creditos.loadImage(img + "creditosHover.png");
+		if (Settings.mouse.isOverObject(creditos)) {
+			creditos.loadImage(Settings.img + "creditosHover.png");
 		} else {
-			creditos.loadImage(img + "creditos.png");
+			creditos.loadImage(Settings.img + "creditos.png");
 		}
 	}
 
@@ -93,23 +84,23 @@ public class Menu {
 
 	private void checkClick() {
 
-		if (mouse.isOverObject(close) && mouse.isLeftButtonPressed()) {
-			window.exit();
+		if (Settings.mouse.isOverObject(close) && Settings.mouse.isLeftButtonPressed()) {
+			Settings.window.exit();
 		}
 		
-		if (mouse.isOverObject(jogar) && mouse.isLeftButtonPressed()) {
-			new ExperimentScreen();
+		if (Settings.mouse.isOverObject(jogar) && Settings.mouse.isLeftButtonPressed()) {
+			new Experiments();
 		}
 		
-		if (mouse.isOverObject(configuracoes) && mouse.isLeftButtonPressed()) {
+		if (Settings.mouse.isOverObject(configuracoes) && Settings.mouse.isLeftButtonPressed()) {
 			
 		}
-		
-		if (mouse.isOverObject(creditos) && mouse.isLeftButtonPressed()) {
+				
+		if (Settings.mouse.isOverObject(creditos) && Settings.mouse.isLeftButtonPressed()) {
 			new Credits();
 		}
 		
-		if (mouse.isOverObject(background) && mouse.isLeftButtonPressed()) {
+		if (Settings.mouse.isOverObject(background) && Settings.mouse.isLeftButtonPressed()) {
 			System.out.println("bg");
 		}
 
