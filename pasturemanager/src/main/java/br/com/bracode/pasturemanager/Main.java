@@ -1,6 +1,6 @@
 package br.com.bracode.pasturemanager;
 
-import br.com.bracode.experiment.Environment;
+import br.com.bracode.gui.Environment;
 import br.com.bracode.tools.Settings;
 
 public class Main {

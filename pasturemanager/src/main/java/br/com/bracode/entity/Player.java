@@ -1,12 +1,13 @@
 package br.com.bracode.entity;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JOptionPane;
+import java.util.Random;
 
 import jplay.GameImage;
 import br.com.bracode.tools.Settings;
+import br.com.bracode.tools.Utils;
 
 public class Player {
 
@@ -14,11 +15,15 @@ public class Player {
 	private String nick;
 	private List<Sheep> sheeps;
 	private int score;
-	public	GameImage avatar;
+	public GameImage avatar;
+	public GameImage molde;
 
-	public Player() {
-		String string;
-		
+	public Player(String name, int positionX, int positionY) {
+
+		molde 		= new GameImage(Settings.img + "molde.png");
+		molde.x 	= positionX;
+		molde.y 	= positionY;
+
 		sheeps = new ArrayList<Sheep>();
 		score = 0;
 
@@ -26,20 +31,18 @@ public class Player {
 			sheeps.add(new Sheep(Settings.img + "ovelha.png"));
 		}
 
-		string = JOptionPane.showInputDialog(null, "Digite seu nome completo:",
-				"Credenciamento - Nome", JOptionPane.QUESTION_MESSAGE);
-		setName(string);
-		generateNick();
+		setName(name);
 
-		string = JOptionPane.showInputDialog(null,
-				"1 - Darth Vader\n2 - Stormtrooper\n3 - Princesa Leia",
-				"Credenciamento - Avatar", JOptionPane.QUESTION_MESSAGE);
-		if(Integer.parseInt(string) > 3 || Integer.parseInt(string) < 1){
-			string = "2";
-		}else{
-			avatar = new GameImage(Settings.img + "avatar0" + string + ".png");
-		}
-		
+		generateNick();
+		avatarRandom();
+
+	}
+
+	private void avatarRandom() {
+		Random r = new Random();
+		avatar = new GameImage("media/img/avatar/0" + r.nextInt(6) + ".png");
+		avatar.x = molde.x + molde.width / 2 - avatar.width / 2;
+		avatar.y = molde.y;
 	}
 
 	public String getName() {
@@ -61,17 +64,17 @@ public class Player {
 	public int getScore() {
 		return score;
 	}
-	
-	public String getScoreString(){
-		if(score < 10){
-			return "0000"+score;
-		}else if(score < 100){
-			return "000"+score;
-		}else if(score < 1000){
-			return "00"+score;
-		}else if(score < 10000){
-			return "0"+score;
-		}else{
+
+	public String getScoreString() {
+		if (score < 10) {
+			return "0000" + score;
+		} else if (score < 100) {
+			return "000" + score;
+		} else if (score < 1000) {
+			return "00" + score;
+		} else if (score < 10000) {
+			return "0" + score;
+		} else {
 			return Integer.toString(score);
 		}
 	}
@@ -95,8 +98,20 @@ public class Player {
 	public void generateNick() {
 		if (name.contains(" ")) {
 			nick = String.valueOf(name.toCharArray(), 0, name.indexOf(" "));
-		}else{
+		} else {
 			nick = name;
 		}
 	}
+
+	public void draw() {
+		avatar.draw();
+		
+		int xName 	= (int) (molde.x + molde.width / 2 - Utils.getWidthText(getNick()) / 2);
+		int xScore 	= (int) (molde.x + molde.width / 2 - Utils.getWidthText(getScoreString()) / 2);
+		
+		Settings.window.drawText(getNick(), xName, 91, Color.white,	Settings.userInfo);
+		Settings.window.drawText(getScoreString(), xScore, 112, Color.white, Settings.userInfo);
+
+	}
+
 }

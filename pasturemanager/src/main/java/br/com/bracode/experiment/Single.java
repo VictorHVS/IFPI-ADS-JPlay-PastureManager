@@ -2,7 +2,10 @@ package br.com.bracode.experiment;
 
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
+
 import br.com.bracode.entity.Player;
+import br.com.bracode.gui.Environment;
 import br.com.bracode.tools.Settings;
 
 public class Single {
@@ -17,12 +20,13 @@ public class Single {
 	}
 
 	private void init() {
-		
-		name = "Pasto Individual";
 
-		player = new Player();
-		player.avatar.x = 1066;
-		player.avatar.y = 12;
+		name = "Pasto Individual";
+		String name = JOptionPane.showInputDialog(null,
+				"Digite seu nome completo:", "Credenciamento - Nome",
+				JOptionPane.QUESTION_MESSAGE);
+		
+		player = new Player(name, 1034, 5);
 
 	}
 
@@ -38,10 +42,8 @@ public class Single {
 
 	private void draw() {
 		Settings.window.drawText(name, 548, 45, Color.white, Settings.title);
-		player.avatar.draw();
-		Settings.window.drawText(player.getNick(), 1067, 92, Color.white, Settings.userInfo);
-		Settings.window.drawText(player.getScoreString(), 1067, 110, Color.white, Settings.userInfo);
-		
+		player.draw();
+
 	}
 
 }

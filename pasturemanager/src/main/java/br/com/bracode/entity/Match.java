@@ -2,7 +2,7 @@ package br.com.bracode.entity;
 
 import java.util.List;
 
-import br.com.bracode.gameobject.Grass;
+import br.com.bracode.gui.Grass;
 
 public class Match {
 
