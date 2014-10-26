@@ -1,6 +1,8 @@
 package br.com.bracode.pasturemanager;
 
 import jplay.GameImage;
+import jplay.Keyboard;
+import br.com.bracode.tools.Message;
 import br.com.bracode.tools.Settings;
 
 public class Menu {
@@ -94,6 +96,9 @@ public class Menu {
 		
 		if (Settings.mouse.isOverObject(configuracoes) && Settings.mouse.isLeftButtonPressed()) {
 			
+		}
+		if(Settings.keyboard.keyDown(Keyboard.ESCAPE_KEY)){
+			Message.exit();
 		}
 				
 		if (Settings.mouse.isOverObject(creditos) && Settings.mouse.isLeftButtonPressed()) {

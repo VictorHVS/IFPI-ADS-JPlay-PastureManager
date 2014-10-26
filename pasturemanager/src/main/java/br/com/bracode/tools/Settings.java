@@ -2,6 +2,7 @@ package br.com.bracode.tools;
 
 import java.awt.Font;
 
+import jplay.Keyboard;
 import jplay.Mouse;
 import jplay.Window;
 
@@ -13,12 +14,14 @@ public class Settings {
 	public static Font		subtitle;
 	public static Font		userInfo;
 	public static Font		console;
+	public static Keyboard	keyboard;
 	
 	public static String img;
 	
 	public Settings() {
 		window 		= new Window(1366, 768);
 		mouse		= window.getMouse();
+		keyboard	= window.getKeyboard();
 		img 		= "media/img/";
 		title		= new Font("Century", Font.BOLD, 33);
 		subtitle	= new Font("Century", Font.PLAIN, 25);

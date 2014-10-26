@@ -1,6 +1,7 @@
 package br.com.bracode.pasturemanager;
 
 import jplay.GameImage;
+import jplay.Keyboard;
 import br.com.bracode.experiment.Single;
 import br.com.bracode.tools.Message;
 import br.com.bracode.tools.Settings;
@@ -102,11 +103,15 @@ public class Experiments {
 		}
 		
 		if (Settings.mouse.isOverObject(home) && Settings.mouse.isLeftButtonPressed()) {
-			Message.home();
+			new Menu();
 		}
 		
 		if (Settings.mouse.isOverObject(background) && Settings.mouse.isLeftButtonPressed()) {
 			System.out.println("bg");
+		}
+		
+		if(Settings.keyboard.keyDown(Keyboard.ESCAPE_KEY)){
+			new Menu();
 		}
 		
 	}

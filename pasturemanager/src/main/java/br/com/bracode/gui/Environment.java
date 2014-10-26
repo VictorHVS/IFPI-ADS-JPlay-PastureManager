@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jplay.GameImage;
+import jplay.Keyboard;
 import br.com.bracode.entity.Player;
 import br.com.bracode.tools.Message;
 import br.com.bracode.tools.Settings;
@@ -41,10 +42,10 @@ public class Environment {
 		
 		for (int i = 0; i < 100; i++) {
 			
-			grasses.add(new Grass("resources/imagens/bloco.png"));
+			grasses.add(new Grass(Settings.img + "grass.png"));
 			
-			grasses.get(i).x = coluna * 70;
-			grasses.get(i).y = 70 + (linha * 40);
+			grasses.get(i).x = 204 + coluna * 80;
+			grasses.get(i).y = 125 + (linha * 39);
 			
 			coluna++;
 			
@@ -101,12 +102,14 @@ public class Environment {
 		statistics.draw();
 		action.draw();
 		corral.draw();
-		boardGrass.draw();
 		drawPlayers();
 		
 		for(Grass grass : grasses){
 			grass.draw();
 		}
+		boardGrass.draw();
+
+
 	}
 
 	public static void checkclick(){
@@ -117,6 +120,10 @@ public class Environment {
 		} else if (Settings.mouse.isOverObject(background) && Settings.mouse.isLeftButtonPressed()) {
 			System.out.println("bg");
 		}
+		if(Settings.keyboard.keyDown(Keyboard.ESCAPE_KEY)){
+			Message.home();
+		}
+		
 	}
 	
 	public static void addPlayer(Player p){
