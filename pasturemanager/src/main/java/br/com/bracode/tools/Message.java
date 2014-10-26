@@ -2,6 +2,7 @@ package br.com.bracode.tools;
 
 import javax.swing.JOptionPane;
 
+import br.com.bracode.gui.Environment;
 import br.com.bracode.pasturemanager.Menu;
 
 public class Message {
@@ -25,7 +26,12 @@ public class Message {
 				JOptionPane.WARNING_MESSAGE);
 
 		if (op == 0) {
+			Environment.resetPlayers();
 			new Menu();
 		}
+	}
+	
+	public static void shortCodes(){
+		
 	}
 }

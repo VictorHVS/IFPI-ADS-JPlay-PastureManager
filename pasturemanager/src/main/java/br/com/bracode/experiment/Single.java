@@ -35,6 +35,7 @@ public class Single {
 		player = new Player(PlayerName, 1034, 5);
 		
 		round	= new Round(0, 0, 20);
+		Environment.addPlayer(player);
 		
 	}
 

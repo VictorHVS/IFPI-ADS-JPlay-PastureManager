@@ -12,6 +12,7 @@ public class Settings {
 	public static Font		title;
 	public static Font		subtitle;
 	public static Font		userInfo;
+	public static Font		console;
 	
 	public static String img;
 	
@@ -22,6 +23,7 @@ public class Settings {
 		title		= new Font("Century", Font.BOLD, 33);
 		subtitle	= new Font("Century", Font.PLAIN, 25);
 		userInfo	= new Font("Segoe UI", Font.BOLD, 17);
+		console		= new Font("Courier New", Font.PLAIN, 14);
 	}
 	
 }

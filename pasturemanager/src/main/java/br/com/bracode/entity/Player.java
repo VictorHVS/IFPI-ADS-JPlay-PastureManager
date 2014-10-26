@@ -16,6 +16,7 @@ public class Player {
 	private List<Sheep> sheeps;
 	private int score;
 	public GameImage avatar;
+	//Gambiarra Mutchu Loca
 	public GameImage molde;
 
 	public Player(String name, int positionX, int positionY) {
@@ -76,6 +77,14 @@ public class Player {
 			return "0" + score;
 		} else {
 			return Integer.toString(score);
+		}
+	}
+	
+	public String getQuantSheepString() {
+		if (score < 10) {
+			return "x0" + sheeps.size();
+		} else {
+			return "x" + sheeps.size();
 		}
 	}
 

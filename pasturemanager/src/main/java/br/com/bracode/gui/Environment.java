@@ -1,9 +1,11 @@
 package br.com.bracode.gui;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import jplay.GameImage;
+import br.com.bracode.entity.Player;
 import br.com.bracode.tools.Message;
 import br.com.bracode.tools.Settings;
 
@@ -22,12 +24,17 @@ public class Environment {
 	private static GameImage close;
 	private static GameImage home;
 	
-	private static List<Grass> grasses;
+	private static GameImage corral;
+	private static GameImage boardGrass;
+	
+	private static List<Grass> 	grasses;
+	private static List<Player>	players;
 	
 	public Environment() {
 		background = new GameImage(Settings.img + "bg_green.png");
 		
 		grasses = new ArrayList<Grass>();
+		players = new ArrayList<Player>();
 		
 		int linha = 1;
 		int coluna = 1;
@@ -74,6 +81,14 @@ public class Environment {
 		action	 = new GameImage(Settings.img + "action.png");
 		action.x = 270;
 		action.y = 20;
+		
+		corral	 = new GameImage(Settings.img + "corral.png");
+		corral.x = 63;
+		corral.y = 172;
+		
+		boardGrass	 = new GameImage(Settings.img + "boardGrass.png");
+		boardGrass.x = 284;
+		boardGrass.y = 163;
 	}
 	
 	public static void draw() {
@@ -85,6 +100,9 @@ public class Environment {
 		console.draw();
 		statistics.draw();
 		action.draw();
+		corral.draw();
+		boardGrass.draw();
+		drawPlayers();
 		
 		for(Grass grass : grasses){
 			grass.draw();
@@ -99,5 +117,20 @@ public class Environment {
 		} else if (Settings.mouse.isOverObject(background) && Settings.mouse.isLeftButtonPressed()) {
 			System.out.println("bg");
 		}
+	}
+	
+	public static void addPlayer(Player p){
+		players.add(p);
+	}
+	
+	public static void drawPlayers(){
+		for (Player player : players){
+			Settings.window.drawText(player.getNick(), 63, 168, Color.WHITE, Settings.console);
+			Settings.window.drawText(player.getQuantSheepString(), 186, 168, Color.WHITE, Settings.console);
+		}
+	}
+	
+	public static void resetPlayers(){
+		players = new ArrayList<Player>();
 	}
 }
