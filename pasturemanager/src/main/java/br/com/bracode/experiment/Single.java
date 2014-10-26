@@ -51,6 +51,7 @@ public class Single {
 	private void draw() {
 		Settings.window.drawText(name, xNamePosition, 48, Color.white, Settings.title);
 		Settings.window.drawText(round.toString(), 705, 98, Color.white, Settings.subtitle);
+		Settings.window.drawText("Fase 01", xNamePosition, 98, Color.white, Settings.subtitle);
 		player.draw();
 
 	}

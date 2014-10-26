@@ -14,12 +14,16 @@ public class Environment {
 
 	private static GameImage topbar;
 	private static GameImage ground;
+	
+	private static GameImage console;
+	private static GameImage statistics;
+	private static GameImage action;
 
 	private static GameImage close;
 	private static GameImage home;
 	
 	private static List<Grass> grasses;
-
+	
 	public Environment() {
 		background = new GameImage(Settings.img + "bg_green.png");
 		
@@ -43,21 +47,33 @@ public class Environment {
 			}
 		}
 
-		close = new GameImage(Settings.img + "close.png");
+		close 	= new GameImage(Settings.img + "close.png");
 		close.x = background.width - close.width;
 		close.y = 0;
 
-		home = new GameImage(Settings.img + "home.png");
-		home.x = background.width - home.width;
-		home.y = close.height;
+		home 	= new GameImage(Settings.img + "home.png");
+		home.x 	= background.width - home.width;
+		home.y 	= close.height;
 
-		topbar = new GameImage(Settings.img + "topbar.png");
+		topbar	 = new GameImage(Settings.img + "topbar.png");
 		topbar.x = 0;
 		topbar.y = 0;
 
-		ground = new GameImage(Settings.img + "ground.png");
+		ground	 = new GameImage(Settings.img + "ground.png");
 		ground.x = 0;
 		ground.y = topbar.height;
+		
+		console 	= new GameImage(Settings.img + "console.png");
+		console.x 	= 284;
+		console.y 	= 572;
+		
+		statistics 		= new GameImage(Settings.img + "statistics.png");
+		statistics.x	= 405;
+		statistics.y 	= 20;
+		
+		action	 = new GameImage(Settings.img + "action.png");
+		action.x = 270;
+		action.y = 20;
 	}
 	
 	public static void draw() {
@@ -66,6 +82,10 @@ public class Environment {
 		ground.draw();
 		home.draw();
 		close.draw();
+		console.draw();
+		statistics.draw();
+		action.draw();
+		
 		for(Grass grass : grasses){
 			grass.draw();
 		}
