@@ -106,8 +106,8 @@ public class Player {
 	public void draw() {
 		avatar.draw();
 		
-		int xName 	= (int) (molde.x + molde.width / 2 - Utils.getWidthText(getNick()) / 2);
-		int xScore 	= (int) (molde.x + molde.width / 2 - Utils.getWidthText(getScoreString()) / 2);
+		int xName 	= (int) (molde.x + molde.width / 2 - Utils.getWidthText(getNick(), Settings.userInfo) / 2);
+		int xScore 	= (int) (molde.x + molde.width / 2 - Utils.getWidthText(getScoreString(), Settings.userInfo) / 2);
 		
 		Settings.window.drawText(getNick(), xName, 91, Color.white,	Settings.userInfo);
 		Settings.window.drawText(getScoreString(), xScore, 112, Color.white, Settings.userInfo);

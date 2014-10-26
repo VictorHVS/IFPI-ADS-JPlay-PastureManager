@@ -20,7 +20,8 @@ public class Settings {
 		mouse		= window.getMouse();
 		img 		= "media/img/";
 		title		= new Font("Century", Font.BOLD, 33);
-		subtitle	= new Font("Century", Font.BOLD, 17);
+		subtitle	= new Font("Century", Font.PLAIN, 25);
 		userInfo	= new Font("Segoe UI", Font.BOLD, 17);
 	}
+	
 }
