@@ -9,6 +9,5 @@ public class Main {
 		new Settings();
 		new Environment();
 		new Menu();
-
 	}
 }

@@ -27,11 +27,13 @@ public class Player {
 
 		sheeps = new ArrayList<Sheep>();
 		score = 0;
-
 		for (int i = 0; i < 5; i++) {
-			sheeps.add(new Sheep(Settings.img + "ovelha.png"));
+			addSheep(63, 172);
 		}
-
+		
+		sheeps.remove(3);
+		
+		
 		setName(name);
 
 		generateNick();
@@ -120,7 +122,43 @@ public class Player {
 		
 		Settings.window.drawText(getNick(), xName, 91, Color.white,	Settings.userInfo);
 		Settings.window.drawText(getScoreString(), xScore, 112, Color.white, Settings.userInfo);
+		
+		for (Sheep sheep : sheeps) {
+			sheep.draw();
+		}
 
+	}
+	
+	public void addSheep(int referenciaX, int referenciaY){
+		Sheep shep 			= new Sheep(Settings.img + "sheep.png");
+		shep.x				= referenciaX + 18;
+		shep.y				= referenciaY + 31;
+		int tamanho			= sheeps.size();
+		boolean	isDiferent 	= false;
+		
+		if(sheeps.isEmpty()){
+			sheeps.add(shep);
+		}else{
+			int i = 0;
+			while(true){
+				System.out.println("oi + " + i);
+				
+				if(shep.x == sheeps.get(i).x){
+					isDiferent = false;
+					shep.x += shep.width + 9;
+				}
+				++i;
+				if(tamanho == i || i > 19){
+					isDiferent = true;
+				}
+				
+				if(isDiferent){
+					sheeps.add(shep);
+					break;
+				}
+			
+			}
+		}
 	}
 
 }

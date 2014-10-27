@@ -127,7 +127,9 @@ public class Environment {
 	}
 	
 	public static void addPlayer(Player p){
+		
 		players.add(p);
+		
 	}
 	
 	public static void drawPlayers(){

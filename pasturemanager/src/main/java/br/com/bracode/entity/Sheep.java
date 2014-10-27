@@ -6,7 +6,7 @@ public class Sheep extends Sprite {
 
 	public Sheep(String fileName) {
 		super(fileName);
-
 	}
+
 
 }
