@@ -4,9 +4,11 @@ import java.awt.Color;
 
 import javax.swing.JOptionPane;
 
+import jplay.Keyboard;
 import br.com.bracode.entity.Player;
 import br.com.bracode.entity.Round;
 import br.com.bracode.gui.Environment;
+import br.com.bracode.tools.Message;
 import br.com.bracode.tools.Settings;
 import br.com.bracode.tools.Utils;
 
@@ -35,7 +37,26 @@ public class Single {
 		player = new Player(PlayerName, 1034, 5);
 		Environment.addPlayer(player);
 		
+		apresentation();
+		
 		round	= new Round(0, 0, 20);
+	}
+
+	public void apresentation() {
+		round		= new Round(1, 0, 0);
+		String msg 	= "Aperte Enter Para Iniciar";
+		int x		= Settings.window.getWidth() / 2 - Utils.getWidthText(msg, Settings.bigText) / 2;
+		int y		= 328;
+		while (true) {
+			Environment.draw();
+			Message.wellcomeConsole();
+			draw();
+			Settings.window.drawText(msg, x, y, Color.white, Settings.bigText);
+			Settings.window.update();		
+			if(Settings.keyboard.keyDown(Keyboard.ENTER_KEY)){
+				break;
+			}
+		}
 	}
 
 	private void loop() {

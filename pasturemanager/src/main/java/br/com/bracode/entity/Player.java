@@ -27,12 +27,9 @@ public class Player {
 
 		sheeps = new ArrayList<Sheep>();
 		score = 0;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < Settings.initialSheeps; i++) {
 			addSheep(63, 172);
 		}
-		
-		sheeps.remove(3);
-		
 		
 		setName(name);
 
@@ -83,7 +80,7 @@ public class Player {
 	}
 	
 	public String getQuantSheepString() {
-		if (score < 10) {
+		if (sheeps.size() < 10) {
 			return "x0" + sheeps.size();
 		} else {
 			return "x" + sheeps.size();
@@ -131,7 +128,7 @@ public class Player {
 	
 	public void addSheep(int referenciaX, int referenciaY){
 		Sheep shep 			= new Sheep(Settings.img + "sheep.png");
-		shep.x				= referenciaX + 18;
+		shep.x				= referenciaX + 15;
 		shep.y				= referenciaY + 31;
 		int tamanho			= sheeps.size();
 		boolean	isDiferent 	= false;
@@ -141,14 +138,18 @@ public class Player {
 		}else{
 			int i = 0;
 			while(true){
-				System.out.println("oi + " + i);
 				
-				if(shep.x == sheeps.get(i).x){
+				if(shep.x == sheeps.get(i).x && shep.y == sheeps.get(i).y){
 					isDiferent = false;
 					shep.x += shep.width + 9;
+					if (shep.x > referenciaX + 140) {
+						shep.x = referenciaX + 16;
+						shep.y += shep.height + 15;
+					}
+					i = 0;
 				}
 				++i;
-				if(tamanho == i || i > 19){
+				if(tamanho == i){
 					isDiferent = true;
 				}
 				
